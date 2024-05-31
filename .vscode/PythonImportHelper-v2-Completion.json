@@ -1,0 +1,223 @@
+[
+    {
+        "label": "fetch_mariadb_data",
+        "importPath": "src.data_extraction",
+        "description": "src.data_extraction",
+        "isExtraImport": true,
+        "detail": "src.data_extraction",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_influxdb_data",
+        "importPath": "src.data_extraction",
+        "description": "src.data_extraction",
+        "isExtraImport": true,
+        "detail": "src.data_extraction",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_data",
+        "importPath": "src.data_processing",
+        "description": "src.data_processing",
+        "isExtraImport": true,
+        "detail": "src.data_processing",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "importPath": "src.train",
+        "description": "src.train",
+        "isExtraImport": true,
+        "detail": "src.train",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "pymysql",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pymysql",
+        "description": "pymysql",
+        "detail": "pymysql",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "InfluxDBClient",
+        "importPath": "influxdb_client",
+        "description": "influxdb_client",
+        "isExtraImport": true,
+        "detail": "influxdb_client",
+        "documentation": {}
+    },
+    {
+        "label": "load_config",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "MinMaxScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "load_model",
+        "importPath": "tensorflow.keras.models",
+        "description": "tensorflow.keras.models",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sequential",
+        "importPath": "keras.models",
+        "description": "keras.models",
+        "isExtraImport": true,
+        "detail": "keras.models",
+        "documentation": {}
+    },
+    {
+        "label": "Dense",
+        "importPath": "keras.layers",
+        "description": "keras.layers",
+        "isExtraImport": true,
+        "detail": "keras.layers",
+        "documentation": {}
+    },
+    {
+        "label": "Adam",
+        "importPath": "keras.optimizers",
+        "description": "keras.optimizers",
+        "isExtraImport": true,
+        "detail": "keras.optimizers",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "create_model",
+        "importPath": "model",
+        "description": "model",
+        "isExtraImport": true,
+        "detail": "model",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.fetch_data",
+        "description": "scripts.fetch_data",
+        "peekOfCode": "def main():\n    \"\"\"\n    Executes the main function which fetches data from both MariaDB and InfluxDB.\n    This function does not take any parameters.\n    This function does not return any value.\n    This function calls the `fetch_mariadb_data()` function to fetch data from MariaDB and the `fetch_influxdb_data()` function to fetch data from InfluxDB.\n    Note: This function assumes that the necessary functions `fetch_mariadb_data()` and `fetch_influxdb_data()` are defined elsewhere in the codebase.\n    \"\"\"\n    fetch_mariadb_data()\n    fetch_influxdb_data()",
+        "detail": "scripts.fetch_data",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.preprocess_data",
+        "description": "scripts.preprocess_data",
+        "peekOfCode": "def main():\n    preprocess_data()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "scripts.preprocess_data",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "scripts.run_training",
+        "description": "scripts.run_training",
+        "peekOfCode": "def main():\n    train_model()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "scripts.run_training",
+        "documentation": {}
+    },
+    {
+        "label": "load_config",
+        "kind": 2,
+        "importPath": "src.config",
+        "description": "src.config",
+        "peekOfCode": "def load_config(config_path=\"config/config.yaml\"):\n    \"\"\"\n    Load a YAML configuration file and return its contents as a dictionary.\n    Args:\n        config_path (str, optional): The path to the configuration file. Defaults to 'config/config.yaml'.\n    Returns:\n        dict: The contents of the configuration file as a dictionary.\n    Raises:\n        FileNotFoundError: If the specified configuration file does not exist.\n        yaml.YAMLError: If there is an error parsing the YAML file.",
+        "detail": "src.config",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_mariadb_data",
+        "kind": 2,
+        "importPath": "src.data_extraction",
+        "description": "src.data_extraction",
+        "peekOfCode": "def fetch_mariadb_data():\n    config = load_config()\n    mariadb_config = config[\"mariadb\"]\n    sensors = config[\"sensors\"][\"mariadb\"]\n    date_range = config[\"date_range\"]\n    connection = pymysql.connect(\n        host=mariadb_config[\"host\"],\n        user=mariadb_config[\"user\"],\n        password=mariadb_config[\"password\"],\n        database=mariadb_config[\"database\"],",
+        "detail": "src.data_extraction",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_influxdb_data",
+        "kind": 2,
+        "importPath": "src.data_extraction",
+        "description": "src.data_extraction",
+        "peekOfCode": "def fetch_influxdb_data():\n    config = load_config()\n    influxdb_config = config[\"influxdb\"]\n    sensors = config[\"sensors\"][\"influxdb\"]\n    client = InfluxDBClient(\n        url=influxdb_config[\"url\"],\n        token=influxdb_config[\"token\"],\n        org=influxdb_config[\"org\"],\n    )\n    query = f\"\"\"",
+        "detail": "src.data_extraction",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_data",
+        "kind": 2,
+        "importPath": "src.data_processing",
+        "description": "src.data_processing",
+        "peekOfCode": "def preprocess_data():\n    \"\"\"\n    Preprocesses the data by reading the raw data from both MariaDB and InfluxDB,\n    concatenating the dataframes, dropping any rows with missing values, scaling the\n    features using MinMaxScaler, and creating a dummy example for presence.\n    Finally, the preprocessed data is saved to a CSV file.\n    Parameters:\n    None\n    Returns:\n    None",
+        "detail": "src.data_processing",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_model",
+        "kind": 2,
+        "importPath": "src.evaluate",
+        "description": "src.evaluate",
+        "peekOfCode": "def evaluate_model():\n    df = pd.read_csv('data/processed/combined_data.csv')\n    X = df[['motion', 'temperature', 'humidity', 'luminance']].values\n    y = df['presence'].values\n    model = load_model('model.h5')\n    predictions = model.predict(X)\n    predictions = (predictions > 0.5).astype(int)\n    accuracy = (predictions == y.reshape(-1, 1)).mean()\n    print(f'Overall Accuracy: {accuracy:.2f}')",
+        "detail": "src.evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "create_model",
+        "kind": 2,
+        "importPath": "src.model",
+        "description": "src.model",
+        "peekOfCode": "def create_model():\n    model = Sequential([\n        Dense(8, input_dim=4, activation='relu'),\n        Dense(4, activation='relu'),\n        Dense(1, activation='sigmoid')\n    ])\n    model.compile(optimizer=Adam(learning_rate=0.001),\n                  loss='binary_crossentropy',\n                  metrics=['accuracy'])\n    return model",
+        "detail": "src.model",
+        "documentation": {}
+    },
+    {
+        "label": "train_model",
+        "kind": 2,
+        "importPath": "src.train",
+        "description": "src.train",
+        "peekOfCode": "def train_model():\n    df = pd.read_csv('data/processed/combined_data.csv')\n    X = df[['motion', 'temperature', 'humidity', 'luminance']].values\n    y = df['presence'].values\n    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n    model = create_model()\n    model.fit(X_train, y_train, epochs=50, batch_size=10, validation_split=0.2)\n    loss, accuracy = model.evaluate(X_test, y_test)\n    print(f'Test Accuracy: {accuracy:.2f}')\n    model.save('model.h5')",
+        "detail": "src.train",
+        "documentation": {}
+    }
+]

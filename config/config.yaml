@@ -1,0 +1,28 @@
+mariadb:
+    host: "your_host"
+    user: "your_user"
+    password: "your_password"
+    database: "your_database"
+  
+  influxdb:
+    url: "http://your_influxdb_host:8086"
+    token: "your_token"
+    org: "your_org"
+    bucket: "your_bucket"
+  
+  sensors:
+    mariadb:
+      - "motion"
+      - "temperature"
+      - "humidity"
+      - "luminance"
+    influxdb:
+      - "motion"
+      - "temperature"
+      - "humidity"
+      - "luminance"
+  
+  date_range:
+    start: "start_date"
+    end: "end_date"
+  
